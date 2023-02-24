@@ -51,7 +51,9 @@ getInstruction(
                         "mashedPotatoes", 4,
                         (step5) => {
                           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li><li>Mashed Potatoes are ready!</li>`;
-                                console.log('finish');
+                          console.log('finish');
+                          //Bonus 1
+                          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden")
                         },
                         (error) => console.log(error)
                       );
@@ -103,6 +105,8 @@ obtainInstruction('steak', 0)
   })
   .then( (step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li><li>steak is ready!</li>`
+    //Bonus 1
+    document.querySelector("#steakImg").removeAttribute("hidden")
   })
   .catch((err) => console.log(err));
 
@@ -121,18 +125,22 @@ async function brusselsSproutsSteps(){
     const stepFour = await obtainInstruction("brusselsSprouts", 3)
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${stepFour}</li>`
     const stepFive = await obtainInstruction("brusselsSprouts", 4)
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${sstepFive}</li>`
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${stepFive}</li>`
     const stepSix = await obtainInstruction("brusselsSprouts", 5)
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${stepSix}</li>`
     const stepSeven = await obtainInstruction("brusselsSprouts", 6)
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${stepSeven}</li>`
     const stepEight = await obtainInstruction("brusselsSprouts", 7)
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${stepEight}</li>`
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready!</li>`
+       //Bonus 1
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   } catch(err){
     console.error(err);
   }
 }
 
+brusselsSproutsSteps()
 
 // Bonus 2 - Promise all
 // ...
@@ -157,7 +165,8 @@ Promise.all(broccoliPromises)
     data.forEach(brStep => {
     document.querySelector("#broccoli").innerHTML += `<li>${brStep}</li>`
     })
-
+    document.querySelector("#broccoli").innerHTML += `<li>broccoli is ready!</li>`
+    document.querySelector("#broccoliImg").removeAttribute("hidden")
   })
   .catch((err) => console.log(err));
 
